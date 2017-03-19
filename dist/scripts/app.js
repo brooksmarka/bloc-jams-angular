@@ -13,13 +13,17 @@
         })
             .state('album', {
                 url: '/album',
-                templateUrl: '/template/album.html'
+                templateUrl: '/templates/album.html'
+        })
+            .state('collection', {
+                url: '/collection',
+                templateUrl: '/templates/collection.html'
         });
             
     }
     
 angular
-    .module('blocJams', ['ui.router']);
+    .module('blocJams', ['ui.router'])
     .config(config);
-    
+        
 })();
