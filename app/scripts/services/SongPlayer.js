@@ -85,6 +85,8 @@
         */
         SongPlayer.volume = 25;
         
+        SongPlayer.previousVolume = null;
+        
          /**
         * @function play
         * @desc Play current or new song
@@ -165,8 +167,17 @@
         SongPlayer.setVolume = function(volume) {
             if (currentBuzzObject){
                 currentBuzzObject.setVolume(volume);
-                SongPlayer.volume = volume;
             }
+            SongPlayer.volume = volume;
+        };
+        
+        SongPlayer.mute = function(){
+          SongPlayer.previousVolume = SongPlayer.volume;
+          SongPlayer.setVolume(0);  
+        };
+        
+        SongPlayer.unmute =function(){
+            SongPlayer.setVolume(SongPlayer.previousVolume);
         };
         
         return SongPlayer;
